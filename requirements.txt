@@ -1,0 +1,25 @@
+# ---- LLM / Agents ----
+langchain
+langgraph
+langchain-groq
+
+# ---- Database ORM ----
+SQLAlchemy>=2.0
+psycopg[binary]
+psycopg2-binary
+
+# ---- Redis ----
+redis
+
+# ---- Environment / Config ----
+python-dotenv
+
+# ---- Utilities ----
+typing_extensions
+
+
+#------Gmail API------
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2

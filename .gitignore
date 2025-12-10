@@ -1,0 +1,10 @@
+.env
+env
+env/
+credentials.json
+token.json
+credentials.json
+token.json
+gg.zip
+__pycache__
+__pycache__/

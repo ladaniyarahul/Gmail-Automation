@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  # app:
+  #   build: .
+  #   container_name: gmail_ai_agent_app
+  #   restart: unless-stopped
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - postgres
+  #     - redis
+  #   volumes:
+  #     - ./src:/app/src
+  #   command: ["python", "-m", "app.main"]
+
+  postgres:
+    image: postgres:16
+    container_name: gmail_ai_agent_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: gmail_agent
+      POSTGRES_PASSWORD: gmail_agent_password
+      POSTGRES_DB: gmail_agent_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # optional: migrations auto-run ke liye
+      # - ./src/db/migrations:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:7
+    container_name: gmail_ai_agent_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
